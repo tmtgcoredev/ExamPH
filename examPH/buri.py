@@ -1,0 +1,4 @@
+# API_SECRET_KEY = "56fe7e75753ec844f4f774600aa05415f13c6348f9f2f5b8779a2e29645188905c2de8e78e5c20fb927846ed83128ddf9508e729e4fab55cf45c2c74b11adbd1"
+API_URL = "https://testing.exams.buri.dev/api/v1/"
+
+APPLICATIONS_URL = API_URL + "applications"
