@@ -118,7 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/root/examPH/static/'
+STATIC_ROOT = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
                 '/usr/local/lib/python3.11/dist-packages/django/contrib/admin/static')
 # Default primary key field type
