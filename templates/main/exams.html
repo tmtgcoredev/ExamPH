@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Welcome to Exams!</h1>
 
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/courses.css' %}"/> {% endcomment %}
+<table border="0" id="user-table" class="w-100 text-center admin-table">
+    <thead class="text-white bg-scholarium">
+        <tr>
+            <th>title</th>
+            <th>uuid</th>
+            <th>created_at</th>
+        </tr>
+    </thead>
+    {% for exam in exams_data %} 
+    <tr>
+        <td >{{ exam.title }}</td>
+        <td>{{ exam.uuid }}</td>
+        <td>{{ exam.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
