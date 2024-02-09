@@ -4,7 +4,7 @@ import jwt
 
 
 def authenticate_user(request):
-    request.session["user_token"] = "56fe7e75753ec844f4f774600aa05415f13c6348f9f2f5b8779a2e29645188905c2de8e78e5c20fb927846ed83128ddf9508e729e4fab55cf45c2c74b11adbd1"
+    # request.session["user_token"] = "user_token"
     request.session.modified = True
     # try:
     #     for key, value in request.session.items():
@@ -41,10 +41,8 @@ def dashboard(request):
 def exams(request):
     template_name = "main/exams.html"
     context = {}
-    authenticate_user(request)
-    user_token = request.session['user_token']
-    
-    context['exams_data'] = get_exams_list(user_token)
+
+    context['exams_data'] = get_exams_list(APP_TOKEN)
     
     return render(request, template_name, context)
 
