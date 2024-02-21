@@ -1,0 +1,231 @@
+body{
+    margin: 0;
+    background: #FFFFFF;
+}
+nav {
+    display: flex;
+    padding: 1.25rem 15.71875rem 1.0625rem 14.1875rem;
+    align-items: center;
+    justify-content: space-between;
+    background: #002555;
+    height: 3rem;
+}
+.navbar-brand{
+    text-decoration: none;
+    color: #FFF;
+}
+.navbar-brand:hover{
+    color: #ececec;
+}
+.hero-banner{
+    display: flex;
+    background-color: #002555;
+    height: calc(100vh - 3rem);
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    padding: 0 20%;
+}
+.container-1{
+    padding: 0 20%;
+}
+.container-2{
+    padding: 0 25%;
+}
+.CTA{
+    display: flex;
+    padding: 0 20%;
+    color: #FFF;
+    align-items: center;
+}
+.cta-button-container{
+    width: 20rem;
+}
+.btn{
+    border-radius: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.125rem;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+}
+.btn-primary{
+    display: inline-flex;
+    padding: 1rem 3rem;
+    justify-content: center;
+    color: #FFF;
+    font-size: 0.8125rem;
+    border: 2px #8588E3 solid;
+    background-color: #8588E3;
+    box-shadow: 0px 4px 0px 0px #6F79D7;
+}
+.btn-primary:hover{
+    background-color: #6F79D7;
+    border: #6F79D7 2px solid;
+    color: #e3e3e3
+}
+.btn-secondary{
+    display: inline-flex;
+    padding: 1rem 3rem;
+    justify-content: center;
+    color: #FFF;
+    font-size: 0.8125rem;
+    background-color: transparent;
+    border: 2px #8588E3 solid;
+    box-shadow: 0px 4px 0px 0px #6F79D7;
+}
+.btn-tertiary{
+    text-transform: none !important;
+    text-align: left !important;
+    display: inline-flex;
+    padding: 1rem 2rem;
+    justify-content: center;
+    color: #4B4B4B;
+    font-size: 0.8125rem;
+    background-color: transparent;
+    border: 2px #E5E5E5 solid;
+    box-shadow: 0px 4px 0px 0px #E5E5E5;
+}
+.horizontal-bar{
+    width: 66.5625rem;
+    height: 0.125rem;
+    flex-shrink: 0;
+    border-bottom: 2px solid #E5E5E5;
+}
+a{
+    border-radius: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1rem;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: small;
+    color: #1CB0F6;
+}
+footer{
+    height: 100vh;
+    background-color: #000;
+}
+.footer-link{
+    border-radius: 1rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: left;
+    line-height: 1rem;
+    font-size: small;
+    color: #FFFFFF80;
+    font-weight: 400;
+    margin-top: 15px;
+}
+// AUTH
+#navbar-auth {
+    display: flex;
+    padding: 1.25rem 15.71875rem 1.0625rem 14.1875rem;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFF;
+    height: 3rem;
+    border-bottom: 1px solid #cbcaca;
+}
+.navbar-brand-auth{
+    text-decoration: none;
+    color: #000;
+}
+.side-nav{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.container-3{
+    padding: 0 5%;
+    min-height: 100vh;
+}
+.main-content{
+    display: flex;
+    flex-direction: column;
+}
+.exam-card{
+    background-color: #8588E3;
+    height: 9rem;
+    width: 100%;
+    padding: 15px 15px;
+    color: #FFF;
+    border-radius: 0.8rem;
+    margin: 10px 0;
+}
+.extra-content{
+    padding: 20px;
+    border: 2px solid #E5E5E5;
+    border-radius: 1rem;
+}
+.quiz-card{
+    background-color: #8588E3;
+    height: 6rem;
+    width: 100%;
+    padding: 15px 15px;
+    color: #FFF;
+    border-radius: 0.8rem;
+    margin: 10px 0 0 0;
+}
+.extra-footer{
+    font-size: 12px;
+    color: #AFAFAF;
+}
+.mr-3{
+    margin-right: 15px;
+}
+.card-container-2{
+    overflow-x: scroll;
+    max-width: 1151px;
+}
+.exam-card-2{
+    background-color: #8588E3;
+    height: 250px;
+    min-width: 450px;
+    padding: 15px 15px;
+    color: #FFF;
+    border-radius: 0.8rem;
+}
+.quiz-card-2{
+    background-color: #FFBC00;
+    height: 150px;
+    min-width: 350px;
+    padding: 15px 15px;
+    color: #FFF;
+    border-radius: 0.8rem;
+}
+.exam-card-3{
+    background-color: #9ec374;
+    height: 350px;
+    min-width: 300px;
+    padding: 15px 15px;
+    color: #FFF;
+    border-radius: 0.8rem;
+}
+.tab {
+    // padding: 10px 20px;
+    // text-decoration: none;
+    // color: black;
+    // border: 1px solid transparent;
+    // border-radius: 5px 5px 0 0;
+    display: flex;
+    padding: 0.625rem 6.78231rem 0.625rem 1.125rem;
+    align-items: center;
+    color: #4B4B4B;
+    border-radius: 0.75rem;
+    height: 40px;
+    width: 200px;
+}
+
+.tab.active {
+    color: #1CB0F6;
+    border-radius: 0.75rem;
+    border: 2px solid #84D8FF;
+    background: #DDF4FF;
+    max-height: 243.25px;
+    width: 200px;
+}

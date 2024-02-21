@@ -1,6 +1,169 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Welcome to the Dashboard!</h1>
+<section class="container-3">
+    <div class="d-flex">
+        <div class="side-nav tabs">
+            <a class="tab active" href="#" onclick="changeTab(event, 'tab1')">Dashboard</a>
+            <a class="tab" href="#" onclick="changeTab(event, 'tab2')">Exams</a>
+            <a class="tab" href="#" onclick="changeTab(event, 'tab3')">Review</a>
+            <a class="tab" href="#" onclick="changeTab(event, 'tab4')">Leaderboards</a>
+        </div>
+        <div id="tab1" class="col-8 main-content pt-3 px-3 tab-content">
+            <h5>Dashboard</h5>
+            <p class="mt-3">Continue your work</p>
+            <div class="card-container d-flex flex-column">
+                <div class="exam-card">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        
+        <div id="tab2" class="col-8 main-content pt-3 px-3 tab-content" style="display: none;">
+          {% include "exams.html" %}
+            </div>
+            <hr>
+            <p class="mt-3">Quizzes</p>
+            <div class="card-container-2 d-flex flex-row">
+                <div class="quiz-card-2 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="quiz-card-2 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="quiz-card-2 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="quiz-card-2 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="quiz-card-2 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+            </div>
+            <hr>
+            <p class="mt-3">Recommended</p>
+            <div class="card-container-2 d-flex flex-row">
+                <div class="exam-card-3 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="exam-card-3 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="exam-card-3 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="exam-card-3 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+                <div class="exam-card-3 mr-3">
+                    <h5>Card Title</h5>
+                    <p>Card Description</p>
+                </div>
+            </div>
+            <hr>
+        </div>
 
+        <div id="tab3" class="col-8 main-content pt-3 px-3 tab-content" style="display: none;">
+            {% include "review.html" %}
+        </div>
+
+        <div id="tab4" class="col-8 main-content pt-3 px-3 tab-content" style="display: none;">
+            {% include "leaderboards.html" %}
+        </div>
+        <div class="col extras m-4">
+            <div class="extra-content">
+                <div class="d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="mb-0">Daily Quiz</h5>
+                    <a href="#">view all</a>
+                </div>
+                <div class="card-container-1 d-flex flex-column">
+                    <div class="quiz-card">
+                        <h5 class="mb-1">Card Title</h5>
+                        <p>Card Description</p>
+                    </div>
+                </div>
+                <div class="extra-footer mt-5">
+                    <p class="fw-bold mb-0">COMPLETED 1/5</p>
+                </div>
+            </div>
+            <div class="extra-content mt-3">
+                <h5>Leaderborads</h5>
+                <div class="d-flex flex-row align-items-center justify-content-between">
+                    <img class="mr-3" src="/images/temp_assets/lock.png" alt="">
+                    <div class="extra-footer">
+                        <p class="fw-bold mb-0">Complete 5 exams to start competing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-5">
+    <section class="text-white container-1">
+    <h3 class="text-center pt-5 pb-5">Ace your Exams with ExamPH</h3>
+    <div class="d-flex pt-5">
+        <div class="col d-flex flex-column">
+            <h5>About Us</h5>
+            <a class="footer-link" href="#">exams</a>
+            <a class="footer-link" href="#">mission</a>
+            <a class="footer-link" href="#">approach</a>
+            <a class="footer-link" href="#">examPH team</a>
+        </div>
+        <div class="col d-flex flex-column">
+            <h5>Apps</h5>
+            <a class="footer-link" href="#">examPH for iOS</a>
+            <a class="footer-link" href="#">examPH for android</a>
+        </div>
+        <div class="col d-flex flex-column">
+            <h5>Help and Support</h5>
+            <a class="footer-link" href="#">FAQs</a>
+            <a class="footer-link" href="#">contact us</a>
+        </div>
+        <div class="col d-flex flex-column">
+            <h5>Privacy</h5>
+            <a class="footer-link" href="#">community guidelines</a>
+            <a class="footer-link" href="#">terms of service</a>
+            <a class="footer-link" href="#">Privacy policy</a>
+        </div>
+        <div class="col d-flex flex-column">
+            <h5>Socials</h5>
+            <a class="footer-link" href="#">blog</a>
+            <a class="footer-link" href="#">instagram</a>
+            <a class="footer-link" href="#">facebook</a>
+            <a class="footer-link" href="#">x</a>
+        </div>
+    </div>
+    </section>
+</footer>
+<script>
+    function changeTab(event, tabId) {
+    event.preventDefault();
+
+    var tabContents = document.getElementsByClassName("tab-content");
+    for (var i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
+    }
+
+    var tabs = document.getElementsByClassName("tab");
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+    }
+    document.getElementById(tabId).style.display = "block";
+
+    event.target.classList.add("active");
+    }
+</script>
 {% endblock %}
