@@ -33,6 +33,9 @@ def authenticate_user(request):
     # except KeyError:
     #     # signout(request)
     #     return False
+def home(request):
+    template_name = "index.html"
+    return render(request, template_name)
 
 def dashboard(request):
     template_name = "main/dashboard.html"

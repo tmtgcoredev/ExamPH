@@ -1,11 +1,11 @@
 {% load static %}
 <header class="header" id="web-header">
     <nav id="navbar-auth">
-        <a class="navbar-brand-auth" href="/index.html">
+        <a class="navbar-brand-auth" href="{% url "home" %}">
           <h5>LOGO</h5>
         </a>
         <a class="navbar-brand-auth" href="#">
-          <img src="/images/temp_assets/avatar.png" alt="" style="border-radius: 100px; border: 0.5px solid gray;">
+          <img src="{% static '/images/temp_assets/avatar.png' %}" alt="" style="border-radius: 100px; border: 0.5px solid gray;">
         </a>
       </nav>
 </header>
