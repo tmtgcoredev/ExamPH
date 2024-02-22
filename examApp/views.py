@@ -39,7 +39,22 @@ def home(request):
 
 def dashboard(request):
     template_name = "main/dashboard.html"
-    context = {}    
+    context = {}  
+    authenticate_user(request)
+    user_token = request.session['user_token']
+    
+    all_exams_data = get_exams_list(user_token)
+    paginator = Paginator(all_exams_data, 10)
+    page = request.GET.get('page')
+    
+    try:
+        exams_data = paginator.page(page)
+    except PageNotAnInteger:
+        exams_data = paginator.page(1)
+    except EmptyPage:
+        exams_data = paginator.page(paginator.num_pages)
+        
+    context['exams_data'] = exams_data  
         
     return render(request, template_name, context)
 def exams(request):
