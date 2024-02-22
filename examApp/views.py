@@ -41,7 +41,8 @@ def dashboard(request):
     template_name = "main/dashboard.html"
     context = {}  
     authenticate_user(request)
-    user_token = request.session['user_token']
+    # user_token = request.session['user_token']
+    user_token = APP_TOKEN
     
     all_exams_data = get_exams_list(user_token)
     paginator = Paginator(all_exams_data, 10)
@@ -61,8 +62,8 @@ def exams(request):
     template_name = "main/exams.html"
     context = {}
     authenticate_user(request)
-    user_token = request.session['user_token']
-    
+    # user_token = request.session['user_token']
+    user_token = APP_TOKEN
     all_exams_data = get_exams_list(user_token)
     paginator = Paginator(all_exams_data, 10)
     page = request.GET.get('page')
