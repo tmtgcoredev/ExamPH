@@ -96,3 +96,25 @@ def leaderboards(request):
     context = {}
         
     return render(request, template_name, context)
+
+def sections(request, exam_uuid):
+    template_name = "exams/sections.html"
+    context = {}  
+    authenticate_user(request)
+    # user_token = request.session['user_token']
+    user_token = APP_TOKEN
+    
+    all_sections_data = get_sections_list(user_token,exam_uuid)
+    paginator = Paginator(all_sections_data, 10)
+    page = request.GET.get('page')
+    
+    try:
+        sections_data = paginator.page(page)
+    except PageNotAnInteger:
+        sections_data = paginator.page(1)
+    except EmptyPage:
+        sections_data = paginator.page(paginator.num_pages)
+        
+    context['sections_data'] = sections_data
+        
+    return render(request, template_name, context)

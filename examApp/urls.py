@@ -8,4 +8,5 @@ urlpatterns = [
     path('podcast/', views.podcast, name='podcast'),
     path('review/', views.review, name='review'),
     path('leaderboards/', views.leaderboards, name='leaderboards'),
+    path('sections/<str:exam_uuid>/', views.sections, name='sections'),
 ]

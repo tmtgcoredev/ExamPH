@@ -1,11 +1,13 @@
 <h5>Exams</h5>
 <p class="mt-3">Continue your work</p>
-<div class="card-container-2 d-flex flex-row">
+<div class="card-container-2 d-flex flex-row" >
     {% for exam in exams_data %} 
+    <a href="{% url 'sections' exam.uuid %}">
         <div class="exam-card-2 mr-3">
             <h5>{{ exam.title }}</h5>
             <p>Card Description</p>
         </div>
+    </a>
     {% endfor %}
 
 
