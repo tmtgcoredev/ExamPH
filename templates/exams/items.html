@@ -1,0 +1,31 @@
+<h5>Section Title</h5>
+<div class="card-container-2 d-flex flex-row">
+    {% for item in items_data %} 
+        {{ item }}
+        <br>
+        <br>
+        {% for choice in choices_data %}
+        {% if choice.item == item.uuid %}
+            {{ choice }}
+        {% endif %}            
+        {% endfor %}
+    {% endfor %} 
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if items_data.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ items_data.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ items_data.number }} of {{ items_data.paginator.num_pages }}.
+        </span>
+
+        {% if items_data.has_next %}
+            <a href="?page={{ items_data.next_page_number }}">next</a>
+            <a href="?page={{ items_data.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
