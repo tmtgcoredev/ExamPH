@@ -134,6 +134,36 @@ def items(request, section_uuid):
         choices.append(choices_data)
     choices = [item for sublist in choices for item in sublist]
     
+    paginator = Paginator(all_items_data, 10)
+    page = request.GET.get('page')
+    
+    try:
+        items_data = paginator.page(page)
+    except PageNotAnInteger:
+        items_data = paginator.page(1)
+    except EmptyPage:
+        items_data = paginator.page(paginator.num_pages)
+        
+    context['items_data'] = items_data
+    context['choices_data'] = choices
+        
+    return render(request, template_name, context)
+
+def quizzes(request, section_uuid):
+    template_name = "exams/quizzes.html"
+    choices = []
+    context = {}  
+    authenticate_user(request)
+    # user_token = request.session['user_token']
+    user_token = APP_TOKEN
+    
+    all_items_data, items_uuid = get_items_list(user_token,section_uuid)
+    
+    for item_uuid in items_uuid:
+        choices_data = get_choices_list(user_token,item_uuid)
+        choices.append(choices_data)
+    choices = [item for sublist in choices for item in sublist]
+    
     paginator = Paginator(all_items_data, 1)
     page = request.GET.get('page')
     
