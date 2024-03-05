@@ -1,8 +1,26 @@
 <h5>Sections</h5>
-<div class="card-container-2 d-flex flex-row">
+{% comment %} <div class="card-container-2 d-flex flex-row">
     {% for section in sections_data %} 
     <a href="{% url 'items' section.uuid %}">
         {{ section }}
+    </a>
+    {% endfor %} 
+</div> {% endcomment %}
+<div class="card-container-2 d-flex flex-row">
+    {% for section in sections_data %} 
+    <a href="{% url 'items' section.uuid %}">
+        <div>
+            <h2>{{ section.title }}</h2>
+            <p>UUID: {{ section.uuid }}</p>
+            <p>Exam: {{ section.exam }}</p>
+            <p>Is Graded: {{ section.is_graded }}</p>
+            <p>Shuffle Items: {{ section.shuffle_items }}</p>
+            <p>Highest Possible Score: {{ section.highest_possible_score }}</p>
+            <p>Created By: {{ section.created_by }}</p>
+            <p>Modified By: {{ section.modified_by }}</p>
+            <p>Created At: {{ section.created_at }}</p>
+            <p>Modified At: {{ section.modified_at }}</p>
+        </div>
     </a>
     {% endfor %} 
 </div>
