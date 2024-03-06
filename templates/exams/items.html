@@ -1,29 +1,39 @@
 <h5>Section Exam</h5>
 <div class="card-container-2 d-flex flex-row">
-    {% set item_number = 1 %}
-    {% for item in items_data %} 
+    {% with item_number=1 %}
+    {% for item in items_data %}
         <h5>{{ item_number }}. {{ item.title }}</h5>
         <p>Instructions: {{ item.instructions }}</p>
         <br>
         <br>
         <div class="d-flex flex-row btn-answer align-items-center">
-            {% set choice_letter = 'a' %}
+            {% with choice_letter='A' %}
             {% for choice in choices_data %}
                 {% if choice.item == item.uuid %}
-                <span class="ans-char">
-                    {{ choice_letter }}
-                </span>
-                <div class="d-flex align-items-center">
-                    {{ choice.short_input }}
-                </div>
-                {% set choice_letter = choice_letter|next %}
-                {% endif %}            
+                    <span class="ans-char">
+                        {{ choice_letter }}
+                    </span>
+                    <div class="d-flex align-items-center">
+                        {{ choice.short_input }}
+                    </div>
+                    {% with choice_letter|ord as choice_ord %}
+                        {% with choice_ord|add:1 as next_choice_ord %}
+                            {% with next_choice_ord|chr as next_choice_letter %}
+                                {% with next_choice_letter as choice_letter %}
+                                {% endwith %}
+                            {% endwith %}
+                        {% endwith %}
+                    {% endwith %}
+                {% endif %}
             {% endfor %}
+            {% endwith %}
         </div>
         <br>
         <br>
-        {% set item_number = item_number + 1 %}
-    {% endfor %} 
+        {% with item_number|add:1 as item_number %}
+        {% endwith %}
+    {% endfor %}
+    {% endwith %}
 </div>
 
 <div class="pagination">
