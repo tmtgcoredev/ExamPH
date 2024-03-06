@@ -1,12 +1,13 @@
 <h5>Section Exam</h5>
 <div class="card-container-2 d-flex flex-row">
     {% for item in items_data %} 
-        {{ item }}
+        <h5>{{item.title}}</h5>
+        <p><p>Instructions: {{ item.instructions }}</p></p>
         <br>
         <br>
         {% for choice in choices_data %}
         {% if choice.item == item.uuid %}
-            {{ choice }}
+            {{ choice.short_input }}
         {% endif %}            
         {% endfor %}
         <br>
