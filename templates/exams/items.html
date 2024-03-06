@@ -1,14 +1,14 @@
 <h5>Section Exam</h5>
 <div class="card-container-2 d-flex flex-row">
-    {% for item in items_data %} 
-        <h5>{{item.title}}</h5>
+    {% for index, item in items_data %} 
+        <h5>{{ index + 1 }}. {{ item.title }}</h5>
         <p><p>Instructions: {{ item.instructions }}</p></p>
         <br>
         <br>
-        {% for choice in choices_data %}
-        {% if choice.item == item.uuid %}
-            {{ choice.short_input }}
-        {% endif %}            
+        {% for index, choice in choices_data %}
+            {% if choice.item == item.uuid %}
+                {{ chr(index + 65) }}. {{ choice.short_input }}
+            {% endif %}            
         {% endfor %}
         <br>
         <br>
