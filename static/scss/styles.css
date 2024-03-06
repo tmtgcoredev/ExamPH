@@ -257,4 +257,28 @@ footer {
   background: #DDF4FF;
   max-height: 243.25px;
   width: 200px;
+}
+
+.btn-answer {
+  display: inline-flex;
+  padding: 1rem 1rem;
+  justify-content: center;
+  color: #333;
+  font-size: 0.8125rem;
+  background-color: transparent;
+  border: 2px #E5E5E5 solid;
+  box-shadow: 0px 4px 0px 0px #E5E5E5;
+  font-weight: 700;
+  border-radius: 1rem;
+  width: 350px;
+  justify-content: left;
+}
+
+.ans-char {
+  font-weight: 700;
+  border-radius: 9px;
+  background-color: transparent;
+  border: 2px #E5E5E5 solid;
+  padding: 5 10px;
+  margin-right: 25px;
 }/*# sourceMappingURL=styles.css.map */

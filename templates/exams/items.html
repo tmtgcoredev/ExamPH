@@ -2,14 +2,21 @@
 <div class="card-container-2 d-flex flex-row">
     {% for index, item in items_data %} 
         <h5>{{ index + 1 }}. {{ item.title }}</h5>
-        <p><p>Instructions: {{ item.instructions }}</p></p>
+        <p>Instructions: {{ item.instructions }}</p>
         <br>
         <br>
-        {% for index, choice in choices_data %}
-            {% if choice.item == item.uuid %}
-                {{ chr(index + 65) }}. {{ choice.short_input }}
-            {% endif %}            
-        {% endfor %}
+        <div class="d-flex flex-row btn-answer align-items-center">
+            {% for index, choice in choices_data %}
+                {% if choice.item == item.uuid %}
+                <span class="ans-char">
+                    {{ chr(index + 65) }}
+                </span>
+                <div class="d-flex align-items-center">
+                    {{ choice.short_input }}
+                </div>
+                {% endif %}            
+            {% endfor %}
+        </div>
         <br>
         <br>
     {% endfor %} 
