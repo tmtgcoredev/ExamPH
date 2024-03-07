@@ -1,32 +1,35 @@
-<h5>Section Exam</h5>
-<div class="card-container-2 d-flex flex-row">
-    {% for item in items_data %} 
-        <h5>{{ forloop.counter }}. {{ item.title }}</h5>
-        <p>Instructions: {{ item.instructions }}</p>
-        {% for choice in item.choices %}
-            <div class="d-flex flex-row btn-answer align-items-center">
-                <span class="ans-char">{{ choice.label }}.</span>
-                <div class="d-flex align-items-center">{{ choice.data.short_input }}</div>
-            </div>
-        {% endfor %}
-        <br>
-    {% endfor %} 
-</div>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="card-container-2 d-flex flex-row">
+        {% for item in items_data %} 
+            <h5>{{ forloop.counter }}. {{ item.title }}</h5>
+            <p>Instructions: {{ item.instructions }}</p>
+            {% for choice in item.choices %}
+                <div class="d-flex flex-row btn-answer align-items-center">
+                    <span class="ans-char">{{ choice.label }}</span>
+                    <div class="d-flex align-items-center">{{ choice.data.short_input }}</div>
+                </div>
+            {% endfor %}
+            <br>
+        {% endfor %} 
+    </div>
 
-<div class="pagination">
-    <span class="step-links">
-        {% if items_data.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ items_data.previous_page_number }}">previous</a>
-        {% endif %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if items_data.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ items_data.previous_page_number }}">previous</a>
+            {% endif %}
 
-        <span class="current">
-            Page {{ items_data.number }} of {{ items_data.paginator.num_pages }}.
+            <span class="current">
+                Page {{ items_data.number }} of {{ items_data.paginator.num_pages }}.
+            </span>
+
+            {% if items_data.has_next %}
+                <a href="?page={{ items_data.next_page_number }}">next</a>
+                <a href="?page={{ items_data.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
         </span>
-
-        {% if items_data.has_next %}
-            <a href="?page={{ items_data.next_page_number }}">next</a>
-            <a href="?page={{ items_data.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+    </div>
+{% endblock %}

@@ -275,6 +275,7 @@ footer {
 }
 
 .ans-char {
+  text-transform: lowercase;
   font-weight: 700;
   border-radius: 9px;
   background-color: transparent;
