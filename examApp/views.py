@@ -121,23 +121,20 @@ def sections(request, exam_uuid):
 
 def items(request, section_uuid):
     template_name = "exams/items.html"
-    choices = []
     context = {}  
     authenticate_user(request)
-    # user_token = request.session['user_token']
     user_token = APP_TOKEN
     
-    all_items_data, items_uuid = get_items_list(user_token,section_uuid)
+    all_items_data, items_uuid = get_items_list(user_token, section_uuid)
+    items_with_choices = []
     
-    ctr = 0
-    for item_uuid in items_uuid:
-        choices_data = get_choices_list(user_token,item_uuid)
-        choices.append(choices_data)
-        ctr = ctr+1
-        char_ctr = chr(ctr + 65)
-    choices = [item for sublist in choices for item in sublist]
+    for item in all_items_data:
+        choices_data = get_choices_list(user_token, item['uuid'])
+        labeled_choices = [{'label': chr(65+i), 'data': choice} for i, choice in enumerate(choices_data)]
+        item['choices'] = labeled_choices
+        items_with_choices.append(item)
     
-    paginator = Paginator(all_items_data, 10)
+    paginator = Paginator(items_with_choices, 10)
     page = request.GET.get('page')
     
     try:
@@ -148,10 +145,7 @@ def items(request, section_uuid):
         items_data = paginator.page(paginator.num_pages)
         
     context['items_data'] = items_data
-    context['choices_data'] = choices
-    context['ctr'] = ctr
-    context['char_ctr'] = char_ctr
-        
+    
     return render(request, template_name, context)
 
 def quizzes(request, section_uuid):
