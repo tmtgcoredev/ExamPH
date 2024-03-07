@@ -133,7 +133,7 @@ def items(request, section_uuid):
     for item_uuid in items_uuid:
         choices_data = get_choices_list(user_token,item_uuid)
         choices.append(choices_data)
-        ctr+=1
+        ctr = ctr+1
         char_ctr = chr(ctr + 65)
     choices = [item for sublist in choices for item in sublist]
     
