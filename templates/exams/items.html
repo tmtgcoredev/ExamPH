@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="card-container-2 d-flex flex-row">
+    <div class="d-flex flex-column align-items-center">
         {% for item in items_data %} 
             <h5>{{ forloop.counter }}. {{ item.title }}</h5>
             <p>Instructions: {{ item.instructions }}</p>
-            {% for choice in item.choices %}
+            <div class="d-flex flex-row">
+                {% for choice in item.choices %}
                 <div class="d-flex flex-row btn-answer align-items-center">
                     <span class="ans-char">{{ choice.label }}</span>
                     <div class="d-flex align-items-center">{{ choice.data.short_input }}</div>
                 </div>
             {% endfor %}
+            </div>
             <br>
         {% endfor %} 
     </div>
