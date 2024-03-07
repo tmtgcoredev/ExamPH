@@ -1,7 +1,7 @@
 <h5>Section Exam</h5>
 <div class="card-container-2 d-flex flex-row">
     {% for item in items_data %} 
-        <h5>{{ index }}. {{ item.title }}</h5>
+        <h5>{{ ctr }}. {{ item.title }}</h5>
         <p>Instructions: {{ item.instructions }}</p>
         <br>
         <br>
@@ -9,7 +9,7 @@
             {% for choice in choices_data %}
                 {% if choice.item == item.uuid %}
                 <span class="ans-char">
-                    {{ char_index }}
+                    {{ char_ctr }}
                 </span>
                 <div class="d-flex align-items-center">
                     {{ choice.short_input }}
