@@ -129,9 +129,12 @@ def items(request, section_uuid):
     
     all_items_data, items_uuid = get_items_list(user_token,section_uuid)
     
+    index = 0
     for item_uuid in items_uuid:
         choices_data = get_choices_list(user_token,item_uuid)
         choices.append(choices_data)
+        index+=1
+        char_index = chr(index + 65)
     choices = [item for sublist in choices for item in sublist]
     
     paginator = Paginator(all_items_data, 10)
@@ -146,6 +149,8 @@ def items(request, section_uuid):
         
     context['items_data'] = items_data
     context['choices_data'] = choices
+    context['index'] = index
+    context['char_index'] = char_index
         
     return render(request, template_name, context)
 
