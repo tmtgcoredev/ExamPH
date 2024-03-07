@@ -1,39 +1,25 @@
 <h5>Section Exam</h5>
 <div class="card-container-2 d-flex flex-row">
-    {% with item_number=1 %}
-    {% for item in items_data %}
-        <h5>{{ item_number }}. {{ item.title }}</h5>
+    {% for item in items_data %} 
+        <h5>{{ index }}. {{ item.title }}</h5>
         <p>Instructions: {{ item.instructions }}</p>
         <br>
         <br>
         <div class="d-flex flex-row btn-answer align-items-center">
-            {% with choice_letter='a' %}
             {% for choice in choices_data %}
                 {% if choice.item == item.uuid %}
-                    <span class="ans-char">
-                        {{ choice_letter }}
-                    </span>
-                    <div class="d-flex align-items-center">
-                        {{ choice.short_input }}
-                    </div>
-                    {% with choice_letter|ord as choice_ord %}
-                        {% with choice_ord|add:1 as next_choice_ord %}
-                            {% with next_choice_ord|chr as next_choice_letter %}
-                                {% with next_choice_letter as choice_letter %}
-                                {% endwith %}
-                            {% endwith %}
-                        {% endwith %}
-                    {% endwith %}
-                {% endif %}
+                <span class="ans-char">
+                    {{ chr(index + 65) }}
+                </span>
+                <div class="d-flex align-items-center">
+                    {{ choice.short_input }}
+                </div>
+                {% endif %}            
             {% endfor %}
-            {% endwith %}
         </div>
         <br>
         <br>
-        {% with item_number|add:1 as item_number %}
-        {% endwith %}
-    {% endfor %}
-    {% endwith %}
+    {% endfor %} 
 </div>
 
 <div class="pagination">

@@ -152,16 +152,17 @@ def items(request, section_uuid):
 def quizzes(request, section_uuid):
     template_name = "exams/quizzes.html"
     choices = []
-    context = {}  
+    context = {}
     authenticate_user(request)
     # user_token = request.session['user_token']
     user_token = APP_TOKEN
     
     all_items_data, items_uuid = get_items_list(user_token,section_uuid)
-    
+    index = 0
     for item_uuid in items_uuid:
         choices_data = get_choices_list(user_token,item_uuid)
         choices.append(choices_data)
+        index+=1
     choices = [item for sublist in choices for item in sublist]
     
     paginator = Paginator(all_items_data, 1)
@@ -176,5 +177,6 @@ def quizzes(request, section_uuid):
         
     context['items_data'] = items_data
     context['choices_data'] = choices
+    context['index'] = index
         
     return render(request, template_name, context)
